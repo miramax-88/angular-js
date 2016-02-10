@@ -1,0 +1,23 @@
+<div class="btn-group btn-group-justified">
+    <form name="loginForm">
+        <div class="row-fluid">
+            <fieldset>
+                <div class="input-group">
+                    <label class="input-group-addon" for="userName">User Name:</label>
+                    <input class="form-control" focus id="userName" type="text" required placeholder="Username" ng-model="user.userName">
+                    <span class="input-group-addon">*require</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-group">
+                    <label class="input-group-addon"  for="password">Password:</label>
+                    <input class="form-control" id="password" type="password" required placeholder="Password" ng-model="user.password">
+                    <span class="input-group-addon">*require</span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="btn-group">
+            <button type="submit" id="loginButton" class="btn btn-default" ng-click="login()">Login</button>
+        </div>
+    </form>
+</div>
