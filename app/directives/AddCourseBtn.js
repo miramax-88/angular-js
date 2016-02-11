@@ -10,7 +10,7 @@ myApp.directive('addCourseBtn', function ($location) {
         template: '<button type="button" class="btn btn-default">Add course</button>',
         controller: function($scope){
             $scope.addCourse = function() {
-                $location.url('/edit-course');
+                $location.url('/courses/new');
             }
         }
     };

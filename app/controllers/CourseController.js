@@ -3,8 +3,8 @@
  */
 
 'use strict';
-myApp.controller('EditCourseController',
-    function EditCourseController($scope) {
+myApp.controller('CourseController',
+    function CourseController($scope) {
         $scope.sortorder = 'name';
     }
 );
