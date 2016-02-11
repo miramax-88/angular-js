@@ -8,7 +8,7 @@ myApp.directive('authorsList', function ($location) {
         restrict: "E",
         templateUrl: '/partials/directives/authorsList.html',
         replace: true,
-        controller: function(scope){
+        controller: function($scope){
             $('#add').click(function() {
                 return !$('#select1 option:selected').remove().appendTo('#select2');
             });
