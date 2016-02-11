@@ -5,6 +5,6 @@
 'use strict';
 myApp.controller('EditCourseController',
     function EditCourseController($scope) {
-
+        $scope.sortorder = 'name';
     }
 );

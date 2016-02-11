@@ -7,10 +7,14 @@ myApp.directive('authorsList', function ($location) {
     return {
         restrict: "E",
         templateUrl: '/partials/directives/authorsList.html',
-        controller: function($scope){
-            $scope.addCourse = function() {
-                $location.url('/edit-course');
-            }
+        replace: true,
+        controller: function(scope){
+            $('#add').click(function() {
+                return !$('#select1 option:selected').remove().appendTo('#select2');
+            });
+            $('#remove').click(function() {
+                return !$('#select2 option:selected').remove().appendTo('#select1');
+            });
         }
     };
 });
