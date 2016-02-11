@@ -1,2 +1,2 @@
-cd app
-node ..\node_modules\http-server\bin\http-server
+cd Angular2016
+call gulp
