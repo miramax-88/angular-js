@@ -29,9 +29,8 @@
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-show="isAuthenticated()">
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{user.name}}</a>
+					<a class="dropdown-toggle" href="#" ng-click="preventDefault($event)" data-toggle="dropdown" >{{user.name}}</a>
 					<ul class="dropdown-menu">
-						<li><a ng-href="/editProfile">Edit Profile</a></li>
 						<li><a ng-href="#" ng-click="logout()">Logout</a></li>
 					</ul>
 				</li>
@@ -52,6 +51,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
 <script src="view1/view1.js"></script>
@@ -69,6 +69,9 @@
 <!--.controllers-->
 <!--services-->
 <script src="services/authentication.js"></script>
+<script src="services/userData.js"></script>
+<script src="services/userData.js"></script>
+<script src="services/userResource.js"></script>
 <!--.services-->
 <!--directives-->
 <script src="directives/addCourseBtn.js"></script>

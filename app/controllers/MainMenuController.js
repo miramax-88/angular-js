@@ -20,6 +20,9 @@ myApp.controller('MainMenuController',
         $scope.logout = function () {
             authService.setCurrentUser({});
         };
+        $scope.preventDefault = function (e) {
+            e.preventDefault();
+        };
     }
 );
 
