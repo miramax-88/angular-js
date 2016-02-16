@@ -7,6 +7,7 @@
 var myApp = angular.module('myApp', [
     'ngResource',
     'ngRoute',
+    'LocalStorageModule',
     'myApp.view1',
     'myApp.view2',
     'myApp.version'

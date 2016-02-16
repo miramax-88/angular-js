@@ -3,29 +3,26 @@
  */
 'use strict';
 
-myApp.factory('authService', function () {
-    var currentUser = {};
+myApp.factory('authService', function (localStorageService) {
+
+    var currentUser = 'currentUser';
 
     function cloneObject(object) {
         return JSON.parse(JSON.stringify(object));
-    };
+    }
 
     return {
         getCurrentUserName:function () {
-            return currentUser.userName
+            return localStorageService.get(currentUser).userName;
         },
         getCurrentUser:function () {
-            return cloneObject(currentUser);
+            return cloneObject( localStorageService.get(currentUser));
         },
         setCurrentUser:function (user) {
-            currentUser = cloneObject(user);
+            localStorageService.set(currentUser, cloneObject(user));
         },
         isAuthenticated:function() {
-            return !!currentUser && !!currentUser.userName;
-        },
-        userCanEditEvent: function(event) {
-            return this.getCurrentUserName() == event.creator;
+            return !!localStorageService.get(currentUser) && !!localStorageService.get(currentUser).userName;
         }
-
     };
 });
