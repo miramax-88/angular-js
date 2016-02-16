@@ -1,21 +1,27 @@
 <form class="form-horizontal center-block" name="loginForm">
-    <div class="form-group form-inline">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" required id="inputEmail3"  ng-model="user.userName" placeholder="Login">
-            <span>*require</span>
-        </div>
-    </div>
-    <div class="form-group form-inline">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" required id="inputPassword3"  ng-model="user.password" placeholder="Password">
-            <span>*require</span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" ng-click="login()" class="btn btn-default">Login</button>
-        </div>
-    </div>
+	<div class="form-group form-inline">
+		<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-10">
+			<input type="text" ng-pattern="/^[a-zA-Z]*$/" ng-model-options="{ updateOn: 'blur' }" required name="user"
+				   class="form-control" id="inputEmail3" ng-model="user.userName" placeholder="Login">
+            <span ng-show="loginForm.user.$invalid && loginForm.user.$touched" style="color:red">*Username is required.</span>
+		</div>
+	</div>
+	<div class="form-group form-inline">
+		<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+		<div class="col-sm-10">
+			<input type="password" ng-pattern="/^[a-zA-Z0-9]*$/" ng-model-options="{ updateOn: 'blur' }" required
+				   name="password" class="form-control" id="inputPassword3" ng-model="user.password"
+				   placeholder="Password">
+			<span ng-show="loginForm.password.$invalid && loginForm.password.$touched" style="color:red">*Password is required.</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<span ng-show="error.status" style="color:red">Wrong login or password</span>
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" ng-disabled="loginForm.user.$invalid || loginForm.password.$invalid"
+					ng-click="login(event, loginForm)" class="btn btn-default">Login
+			</button>
+		</div>
+	</div>
 </form>

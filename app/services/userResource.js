@@ -3,11 +3,11 @@
  */
 
 myApp.factory('userResource', ['$resource', function ($resource) {
-    var service = $resource('/data/user/:userName.json', {userName:'@userName'}, { });
+    var User = $resource('/data/user/:userName.json', {userName:'@userName'}, { });
 
-    service.queryAll = function (callback) {
-        return service.query({}, callback)
+    User.queryAll = function (callback) {
+        return User.query({}, callback)
     };
 
-    return service;
+    return User;
 }]);

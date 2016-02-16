@@ -29,3 +29,6 @@
   padding: 0;
 }
 
+.form-control .ng-invalid {
+  border: 1px solid red;
+}

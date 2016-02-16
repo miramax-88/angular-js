@@ -8,6 +8,9 @@ myApp.factory('userData', ['userResource', function (userResource) {
             return userResource.get({userName:userName}, function (user) {
                 if (callback)
                     callback(user);
+            }, function(error){
+                if (callback)
+                    callback(error);
             });
         }
     };

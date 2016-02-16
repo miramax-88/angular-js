@@ -9,11 +9,16 @@ myApp.controller('LoginController',
             userName: '',
             password: ''
         };
-        $scope.login = function() {
+        $scope.error = {
+            status: false
+        };
+        $scope.login = function(event, loginForm) {
             userData.getUser($scope.user.userName, function (user) {
                 if (!!user && user.password === $scope.user.password) {
                     authService.setCurrentUser(user);
                     $location.url('/courses');
+                } else {
+                    $scope.error.status = true;
                 }
             });
         }
