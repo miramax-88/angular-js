@@ -4,7 +4,18 @@
 
 'use strict';
 myApp.controller('CourseController',
-    function CourseController($scope) {
-        $scope.sortorder = 'name';
+    function CourseController($scope, $location) {
+        $scope.course = {
+            'duration': ''
+        };
+        $scope.saveCourse = function(course) {
+            if(course.date) {
+
+            }
+            console.log(course)
+        };
+        $scope.cancelCourse = function() {
+            $location.url('/courses')
+        };
     }
 );

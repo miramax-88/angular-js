@@ -4,7 +4,7 @@
 
 'use strict';
 myApp.controller('CoursesController',
-    function CoursesController($scope) {
+    function CoursesController($scope, $location) {
 
     }
 );
