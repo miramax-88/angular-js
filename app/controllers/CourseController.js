@@ -6,6 +6,7 @@
 myApp.controller('CourseController',
     function CourseController($scope, $location) {
         $scope.course = {
+            date: ''
         };
         $scope.saveCourse = function(course) {
             console.log(course)
