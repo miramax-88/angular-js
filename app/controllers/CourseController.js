@@ -6,12 +6,8 @@
 myApp.controller('CourseController',
     function CourseController($scope, $location) {
         $scope.course = {
-            'duration': ''
         };
         $scope.saveCourse = function(course) {
-            if(course.date) {
-
-            }
             console.log(course)
         };
         $scope.cancelCourse = function() {
