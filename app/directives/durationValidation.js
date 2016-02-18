@@ -9,11 +9,7 @@ myApp.directive('durationValidation', function (formatService) {
         replace: true,
         link: function(scope, elem){
             scope.$watch(function(){
-                scope.course.formattedDuration = formatService.formatDuration(scope.course.duration);
-            });
-            elem.on('keyup', function() {
-                console.log(formatService.formatDuration(scope.course.duration));
-
+                formatService.formatDuration(scope.course.duration);
             });
         }
     };
