@@ -7,7 +7,7 @@
 var courses = {courses : [
     {
         "id": 1,
-        "name": "Angular Hack Night",
+        "name": "First",
         "description": "joeeames",
         "date": "03/16/2013",
         "duration": "10",
@@ -15,7 +15,7 @@ var courses = {courses : [
     },
     {
         "id": 2,
-        "name": "Angular Hack Night",
+        "name": "Second",
         "description": "joeeames",
         "date": "03/16/2013",
         "duration": "20",
