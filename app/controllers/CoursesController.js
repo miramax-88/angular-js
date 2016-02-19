@@ -5,6 +5,9 @@
 'use strict';
 myApp.controller('CoursesController',
     function CoursesController($scope, courseData) {
+
         $scope.courses = courseData.getAllEvents();
+
+        $scope.search = '';
     }
 );
