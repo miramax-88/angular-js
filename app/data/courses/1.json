@@ -3,6 +3,6 @@
         "name": "Angular Hack Night",
         "description": "joeeames",
         "date": "03/16/2013",
-        "time": "4:00pm - 8:30pm",
-        "authors": ['First', 'Second']
+        "duration": "10",
+        "authors": ['First']
     }
