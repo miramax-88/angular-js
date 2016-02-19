@@ -4,7 +4,7 @@
 
 'use strict';
 myApp.controller('CoursesController',
-    function CoursesController($scope, $location) {
-
+    function CoursesController($scope, courseData) {
+        $scope.courses = courseData.getAllEvents();
     }
 );
