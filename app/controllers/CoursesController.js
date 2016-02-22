@@ -12,11 +12,7 @@ myApp.controller('CoursesController',
         $scope.inputVal = '';
 
         $scope.find = function(val){
-            if(!val){
-                $scope.courses = courseData.getAllEvents();
-                return;
-            }
-            $scope.courses = filterByTitle($scope.courses, val);
+            $scope.inputVal = val;
         };
     }
 );
