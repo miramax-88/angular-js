@@ -4,10 +4,19 @@
 
 'use strict';
 myApp.controller('CoursesController',
-    function CoursesController($scope, courseData) {
-
+    function CoursesController($scope, courseData, $filter) {
+        var filterByTitle = $filter('filterByTitle');
         $scope.courses = courseData.getAllEvents();
 
-        $scope.search = '';
+        $scope.searchBy = '';
+        $scope.inputVal = '';
+
+        $scope.find = function(val){
+            if(!val){
+                $scope.courses = courseData.getAllEvents();
+                return;
+            }
+            $scope.courses = filterByTitle($scope.courses, val);
+        };
     }
 );
