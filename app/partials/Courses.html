@@ -1,8 +1,8 @@
 <form class="navbar-form well " role="search">
 	<div class="navbar-inner">
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Search">
-			<button type="submit" class="btn btn-default">Find</button>
+			<input type="text" ng-model="searchBy" class="form-control"  placeholder="Search">
+			<button type="submit" ng-click="find(searchBy)" class="btn btn-default">Find</button>
 		</div>
 		<div class="pull-right">
 			<add-course-btn ng-click="addCourse()"></add-course-btn>
@@ -10,16 +10,15 @@
 	</div>
 </form>
 
-<ul class="media-list" ng-repeat="course in courses">
+<ul class="media-list" ng-repeat="course in courses |filter:{name:inputVal}">
 	<li class="well col-md-9">
 		<div class="col-md-9">
-			<h4 class="media-heading">{{course.name}}Video 1</h4>
-			<div><strong>Duration: </strong>{{course.duration}}1.30</div>
-			<div><strong>Date: </strong>{{course.date}}15.02.2016</div>
+			<h4 class="media-heading">{{course.name}}</h4>
+			<div><strong>Duration: </strong>{{course.duration | duration}}</div>
+			<div><strong>Date: </strong>{{course.date}}</div>
 		</div>
 		<div class="col-md-9">
 			{{course.description}}
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It
 		</div>
 		<div class="col-md-2">
 			<p>
