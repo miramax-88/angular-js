@@ -4,12 +4,12 @@
 
 'use strict';
 myApp.controller('CourseController',
-    function CourseController($scope, $location) {
+    function CourseController($scope, $location, courseData) {
         $scope.course = {
 
         };
         $scope.saveCourse = function(course) {
-            console.log(course)
+            courseData.save(course/*, function() { $location.url('/course/' + course.id); }*/);
         };
         $scope.cancelCourse = function() {
             $location.url('/courses')

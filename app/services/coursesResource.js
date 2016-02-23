@@ -5,7 +5,7 @@
 'use strict';
 
 myApp.factory('coursesResource', ['$resource', function ($resource) {
-    var Service = $resource('/data/courses/:id.json', {id:'@id'});
+    var Service = $resource('/data/courses/:id', {id:'@id'});
 
     Service.queryAll = function (cb) {
         return Service.query({}, cb)

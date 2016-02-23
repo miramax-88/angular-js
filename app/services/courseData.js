@@ -5,23 +5,14 @@
 
 myApp.factory('courseData', function (coursesResource, authService) {
     return {
-        getEvent: function(eventId, callback) {
+        getCourse: function(eventId, callback) {
             return coursesResource.get({id:eventId}, function(course) {
                 if (callback)
                     callback(course);
             });
         },
-        getAllEvents: function(callback) {
+        getAllCourses: function(callback) {
             return coursesResource.queryAll(callback);
-        },
-        getNextSessionId:function (course) {
-            var max = 0;
-            for (var idx = 0; idx < course.sessions.length; idx++) {
-                if (course.sessions[idx].id > max) {
-                    max = course.sessions[idx].id;
-                }
-            }
-            return max+1;
         },
         save: function(course, callback) {
             if (course.id) {
@@ -29,8 +20,7 @@ myApp.factory('courseData', function (coursesResource, authService) {
             } else {
                 coursesResource.queryAll(function(events) {
                     course.creator = authService.getCurrentUserName();
-                    course.id = getNextEventId(events);
-                    course.sessions = [];
+                    course.id = getNextCourseId(events);
                     coursesResource.save(course);
                     if (callback)
                         callback();
@@ -39,7 +29,7 @@ myApp.factory('courseData', function (coursesResource, authService) {
         }
     };
 
-    function getNextEventId(events) {
+    function getNextCourseId(events) {
         var max = 0;
         for (var idx = 0; idx < events.length; idx++) {
             if (events[idx].id > max) {

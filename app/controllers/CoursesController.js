@@ -6,7 +6,7 @@
 myApp.controller('CoursesController',
     function CoursesController($scope, courseData, $filter) {
         var filterByTitle = $filter('filterByTitle');
-        $scope.courses = courseData.getAllEvents();
+        $scope.courses = courseData.getAllCourses();
 
         $scope.searchBy = '';
         $scope.inputVal = '';
