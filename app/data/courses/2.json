@@ -4,5 +4,5 @@
         "description": "joeeames",
         "date": "03/16/2013",
         "duration": "20",
-        "authors": ['First', 'Second']
+        "authors": "['First', 'Second']"
     }

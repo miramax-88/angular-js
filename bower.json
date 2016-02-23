@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "angular-resource": "^1.5.0",
-    "angular-local-storage": "^0.2.3",
+    "angular-local-storage": "^0.2.5",
     "angular-ui-bootstrap-datetimepicker": "^0.14.4",
     "angular-mocks": "^1.5.0"
   }

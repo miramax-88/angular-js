@@ -23,18 +23,24 @@ var Courses = [
     }
 ];
 
+
 var myApp = angular.module('myApp', [
     'ngResource',
     'ngRoute',
     'LocalStorageModule'
 ]).config(function ($provide) {
     $provide.decorator('$httpBackend', angular.mock.e2e.$httpBackendDecorator);
-}).run(function ($httpBackend) {
+}).run(function ($httpBackend, localStorageService) {
     $httpBackend.whenGET('/partials/login.html').passThrough();
     $httpBackend.whenGET('/partials/course.html').passThrough();
     $httpBackend.whenGET('/partials/courses.html').passThrough();
     $httpBackend.whenGET('/partials/directives/authorsList.html').passThrough();
-    $httpBackend.whenGET('/data/courses').respond(Courses);
+    $httpBackend.whenGET('/data/courses').respond(function () {
+        if (localStorageService.isSupported) {
+            Courses = localStorageService.get('courses');
+        }
+        return [200, Courses, {}];
+    });
 
     $httpBackend.whenGET('/data/user/test.json').respond(
         {"userName": "test", "password": "test", "name": "Max", "emailAddress": "test@test.com"}
@@ -43,6 +49,7 @@ var myApp = angular.module('myApp', [
     $httpBackend.whenPOST(/\/data\/courses\/(.+)/).respond(function (method, url, data, headers) {
         console.log('Received these data:', method, url, data, headers);
         Courses.push(angular.fromJson(data));
+        localStorageService.set('courses', Courses);
         return [200, {}, {}];
     });
 });
