@@ -21,6 +21,21 @@ var Courses = [
     }
 ];
 
+function getUrlVars(url) {
+    var vars = {};
+    url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function findById(source, id) {
+    for (var i = 0; i < source.length; i++) {
+        if (source[i].id === id) {
+            return source[i];
+        }
+    }
+}
 
 myApp.config(function ($provide) {
     $provide.decorator('$httpBackend', angular.mock.e2e.$httpBackendDecorator);
@@ -33,31 +48,25 @@ myApp.config(function ($provide) {
         if (localStorageService.isSupported && localStorageService.get('courses')) {
             Courses = localStorageService.get('courses');
         } else {
-           localStorageService.set('courses', Courses);
+            localStorageService.set('courses', Courses);
         }
         return [200, Courses, {}];
     });
 
-    $httpBackend.whenGET('/data/courses/getItem').respond(function (method, url, id, headers) {
+    $httpBackend.whenGET(/\/data\/courses\/getItem\/?(.+)/).respond(function (method, url) {
         var courses = localStorageService.get('courses');
-
-        function findById(source, id) {
-            for (var i = 0; i < source.length; i++) {
-                if (source[i].id === id) {
-                    return source[i];
-                }
-            }
-        }
-        console.log('Received these data:', method, url, id, headers);
-        return [200, findById(courses, id), {}];
+        var id = getUrlVars(url)['id'];
+        var course = findById(courses, parseInt(id));
+        console.log('Received these data:', method, url);
+        return [200, course, {}];
     });
 
     $httpBackend.whenGET('/data/user/test.json').respond(
         {"userName": "test", "password": "test", "name": "Max", "emailAddress": "test@test.com"}
     );
 
-    $httpBackend.whenPOST('/data/courses/saveItem').respond(function (method, url, course, headers) {
-        console.log('Received these data:', method, url, data, headers);
+    $httpBackend.whenPOST('/data/courses/saveItem').respond(function (method, url, course) {
+        console.log('Received these data:', method, url, data);
         var Courses = localStorageService.get('courses');
 
         function getNextCourseId(events) {

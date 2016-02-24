@@ -5,8 +5,6 @@
 'use strict';
 
 myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
-    //var Service = $resource('/data/courses/:id', {id:'@id'});
-
     return {
         getItems: function () {
             var deferred = $q.defer();
@@ -19,7 +17,7 @@ myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
         },
         getItem:  function (id) {
             var deferred = $q.defer();
-            $resource('/data/courses/getItem', {}, id, function(event){
+            $resource('/data/courses/getItem').get({'id':id}, {}, function(event){
                 deferred.resolve(event);
             }, function(error){
                 deferred.reject(error);
