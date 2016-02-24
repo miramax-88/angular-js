@@ -4,8 +4,11 @@
 
 'use strict';
 myApp.controller('CourseController',
-    function CourseController($scope, $location, coursesResource, $routeParams) {
-
+    function CourseController($scope, $location, coursesResource, $routeParams, authService) {
+        if (!authService.isAuthenticated()) {
+            $location.url('/login');
+            return;
+        }
         $scope.course = {};
         if ($location.$$url.indexOf('/courses/edit') > -1) {
             coursesResource.getItem($routeParams.id).then(function (data) {

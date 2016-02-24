@@ -4,7 +4,11 @@
 
 'use strict';
 myApp.controller('CoursesController',
-    function CoursesController($scope, coursesResource, $filter, $location) {
+    function CoursesController($scope, coursesResource, $filter, $location, authService) {
+        if (!authService.isAuthenticated()) {
+            $location.url('/login');
+            return;
+        }
         $scope.courses = {};
         $scope.searchBy = '';
         $scope.inputVal = '';
