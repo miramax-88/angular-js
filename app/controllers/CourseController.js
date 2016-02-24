@@ -4,14 +4,28 @@
 
 'use strict';
 myApp.controller('CourseController',
-    function CourseController($scope, $location, courseData) {
-        $scope.course = {
+    function CourseController($scope, $location, coursesResource, $routeParams) {
+
+        $scope.course = {};
+        if ($location.$$url.indexOf('/courses/edit') > -1) {
+            coursesResource.getItem($routeParams.id).then(function (data) {
+                $scope.course = data;
+            });
+        }
+
+        $scope.saveCourse = function (course) {
+            if ($location.$$url.indexOf('/courses/edit') > -1) {
+                coursesResource.saveItem(course, function () {
+                    $location.url('/course/' + course.id);
+                });
+            } else if ($location.$$url.indexOf('/courses/new') > -1) {
+                coursesResource.saveItem(course, function () {
+                    $location.url('/course/' + course.id);
+                });
+            }
 
         };
-        $scope.saveCourse = function(course) {
-            courseData.save(course/*, function() { $location.url('/course/' + course.id); }*/);
-        };
-        $scope.cancelCourse = function() {
+        $scope.cancelCourse = function () {
             $location.url('/courses')
         };
     }

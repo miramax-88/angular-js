@@ -13,10 +13,10 @@ myApp.filter('duration', [function () {
     };
 }]);
 
-myApp.filter('filterByTitle', [function () {
+/*myApp.filter('filterByTitle', [function () {
     return function (courses, val) {
         if (!val.length) {
-            return ;
+            return;
         }
         var posFilterArray = [];
         angular.forEach(courses, function (course) {
@@ -28,5 +28,5 @@ myApp.filter('filterByTitle', [function () {
     };
 
 
-}]);
+}]);*/
 
