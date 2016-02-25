@@ -13,7 +13,7 @@ myApp.controller('CoursesController',
         $scope.searchBy = '';
         $scope.inputVal = '';
 
-        coursesResource.getItems().then(function(data){
+        coursesResource.getItems().then(function (data) {
             $scope.courses = data;
         });
 
@@ -23,6 +23,11 @@ myApp.controller('CoursesController',
 
         $scope.edit = function (course) {
             $location.url('/courses/edit/' + course.id);
+        };
+        $scope.remove = function (course) {
+            coursesResource.removeItem(course).then(function (data) {
+                $scope.courses = data;
+            });
         };
     }
 );

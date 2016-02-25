@@ -17,16 +17,9 @@ myApp.controller('CourseController',
         }
 
         $scope.saveCourse = function (course) {
-            if ($location.$$url.indexOf('/courses/edit') > -1) {
-                coursesResource.saveItem(course, function () {
-                    $location.url('/course/' + course.id);
-                });
-            } else if ($location.$$url.indexOf('/courses/new') > -1) {
-                coursesResource.saveItem(course, function () {
-                    $location.url('/course/' + course.id);
-                });
-            }
-
+            coursesResource.saveItem(course, function () {
+                $location.url('/course/' + course.id);
+            });
         };
         $scope.cancelCourse = function () {
             $location.url('/courses')

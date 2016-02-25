@@ -24,9 +24,18 @@ myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
             });
             return deferred.promise;
         },
-        saveItem:  function () {
+        saveItem:  function (course) {
             var deferred = $q.defer();
-            $resource('/data/courses/saveItem:id', {id:'@id'}, function(event){
+            $resource('/data/courses/saveItem').save({id:course.id}, course, function(event){
+                deferred.resolve(event);
+            }, function(error){
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        },
+        removeItem:  function (course) {
+            var deferred = $q.defer();
+            $resource('/data/courses/removeItem').save({id:course.id}, course,  function(event){
                 deferred.resolve(event);
             }, function(error){
                 deferred.reject(error);
