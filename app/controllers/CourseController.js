@@ -17,8 +17,8 @@ myApp.controller('CourseController',
         }
 
         $scope.saveCourse = function (course) {
-            coursesResource.saveItem(course, function () {
-                $location.url('/course/' + course.id);
+            coursesResource.saveItem(course).then(function () {
+                $location.url('/courses/');
             });
         };
         $scope.cancelCourse = function () {

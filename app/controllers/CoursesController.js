@@ -26,7 +26,7 @@ myApp.controller('CoursesController',
         };
         $scope.remove = function (course) {
             coursesResource.removeItem(course).then(function (data) {
-                $scope.courses = data;
+                $scope.courses = data.courses;
             });
         };
     }

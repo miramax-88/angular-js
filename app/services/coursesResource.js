@@ -35,7 +35,7 @@ myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
         },
         removeItem:  function (course) {
             var deferred = $q.defer();
-            $resource('/data/courses/removeItem').save({id:course.id}, course,  function(event){
+            $resource('/data/courses/removeItem').remove({id:course.id}, course,  function(event){
                 deferred.resolve(event);
             }, function(error){
                 deferred.reject(error);

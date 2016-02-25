@@ -58,7 +58,7 @@ myApp.config(function ($provide) {
         {"userName": "test", "password": "test", "name": "Max", "emailAddress": "test@test.com"}
     );
     $httpBackend.whenGET('/data/courses/getItems').respond(function () {
-        if (localStorageService.isSupported && localStorageService.get('courses').length) {
+        if (localStorageService.isSupported && localStorageService.get('courses') && localStorageService.get('courses').length) {
             Courses = localStorageService.get('courses');
         } else {
             localStorageService.set('courses', Courses);
@@ -105,12 +105,12 @@ myApp.config(function ($provide) {
         return [200, {}, {}];
     });
 
-    $httpBackend.whenPOST(/\/data\/courses\/removeItem\/?(.+)/).respond(function (method, url, data) {
+    $httpBackend.whenDELETE(/\/data\/courses\/removeItem\/?(.+)/).respond(function (method, url, data) {
         var courses = angular.fromJson(localStorageService.get('courses'));
-        var course = angular.fromJson(data);
-        var mapped = courses.filter(function(el) { return el.id != course.id; });
+        var id = getUrlVars(url)['id'];
+        var mapped = courses.filter(function(el) { return el.id != id; });
         localStorageService.set('courses', mapped);
         console.log('Received these data:', method, url, mapped);
-        return [200, mapped, {}];
+        return [200, {courses:mapped}, {}];
     });
 });
