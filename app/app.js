@@ -6,7 +6,8 @@
 var myApp = angular.module('myApp', [
     'ngResource',
     'ngRoute',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angularModalService'
 ]).config(['$routeProvider', '$locationProvider', function ($routeProvider) {
     $routeProvider.when('/login', {templateUrl: '/partials/login.html', controller: 'LoginController'});
     $routeProvider.when('/courses', {templateUrl: '/partials/courses.html', controller: 'CoursesController'});

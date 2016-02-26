@@ -4,7 +4,7 @@
 
 'use strict';
 myApp.controller('CourseController',
-    function CourseController($scope, $location, coursesResource, $routeParams, authService) {
+    function CourseController($scope, $location, coursesResource, $routeParams, authService, ModalService) {
         if (!authService.isAuthenticated()) {
             $location.url('/login');
             return;
@@ -17,12 +17,33 @@ myApp.controller('CourseController',
         }
 
         $scope.saveCourse = function (course) {
-            coursesResource.saveItem(course).then(function () {
-                $location.url('/courses/');
+            ModalService.showModal({
+                templateUrl: '/partials/modal.html',
+                controller: "CourseController"
+            }).then(function(modal) {
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    $scope.message = "You said " + result;
+                });
             });
+
+            /*coursesResource.saveItem(course).then(function () {
+                $location.url('/courses/');
+            });*/
         };
         $scope.cancelCourse = function () {
             $location.url('/courses')
         };
+
+        /*$scope.show = function() {
+            ModalService.showModal({
+                templateUrl: '/partials/modal.html'
+            }).then(function(modal) {
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    $scope.message = "You said " + result;
+                });
+            });
+        };*/
     }
 );
