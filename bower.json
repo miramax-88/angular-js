@@ -18,6 +18,7 @@
     "angular-ui-bootstrap-datetimepicker": "^0.14.4",
     "angular-mocks": "^1.5.0",
     "angular-bootstrap": "^1.1.2",
-    "angular-modal-service": "^0.9.10"
+    "angular-modal-service": "^0.9.10",
+    "angular-drag-and-drop-lists": "^1.4.0"
   }
 }

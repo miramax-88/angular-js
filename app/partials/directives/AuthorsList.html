@@ -1,17 +1,12 @@
-<div class=" col-sm-10">
-	<select  class="col-sm-2" required multiple id="select2"></select>
-	<div class="col-sm-2">
-		<button  class="btn btn-default" id="remove">
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</button>
-		<button class="btn btn-default pull-right" id="add">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</button>
-	</div>
-	<select class=" col-sm-2 " multiple id="select1">
-		<option value="1">Option 1</option>
-		<option value="2">Option 2</option>
-		<option value="3">Option 3</option>
-		<option value="4">Option 4</option>
-	</select>
-</div>
+<ul dnd-list="list">
+	<li ng-repeat="item in list"
+		dnd-draggable="item"
+		dnd-moved="list.splice($index, 1)"
+		dnd-effect-allowed="move"
+		dnd-selected="models.selected = item"
+		ng-class="{'selected': models.selected === item}">
+		{{item.label}}
+	</li>
+</ul>
+
+

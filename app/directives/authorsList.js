@@ -8,13 +8,22 @@ myApp.directive('authorsList', function ($location) {
         restrict: "E",
         templateUrl: '/partials/directives/authorsList.html',
         replace: true,
-        controller: function(){
-            $('#add').click(function() {
-                return !$('#select1 option:selected').remove().appendTo('#select2');
-            });
-            $('#remove').click(function() {
-                return !$('#select2 option:selected').remove().appendTo('#select1');
-            });
+        controller: function ($scope) {
+            $scope.models = {
+                selected: null,
+                lists: {"A": ['qqqqqq'], "B": []}
+            };
+
+            // Generate initial model
+            for (var i = 1; i <= 3; ++i) {
+                $scope.models.lists.A.push({label: "Item A" + i});
+                $scope.models.lists.B.push({label: "Item B" + i});
+            }
+
+            // Model to JSON for demo purpose
+            $scope.$watch('models', function (model) {
+                $scope.modelAsJson = angular.toJson(model, true);
+            }, true);
         }
     };
 });
