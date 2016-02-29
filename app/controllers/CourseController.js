@@ -30,7 +30,9 @@ myApp.controller('CourseController',
                     });
                 });
             } else {
-                $location.url('/courses/');
+                coursesResource.saveItem(course).then(function () {
+                    $location.url('/courses/');
+                });
             }
         };
         $scope.cancelCourse = function () {

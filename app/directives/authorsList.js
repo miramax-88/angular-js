@@ -11,7 +11,7 @@ myApp.directive('authorsList', function ($location) {
         controller: function ($scope) {
             $scope.models = {
                 selected: null,
-                lists: {"A": ['qqqqqq'], "B": []}
+                lists: {"A": [], "B": []}
             };
 
             // Generate initial model
