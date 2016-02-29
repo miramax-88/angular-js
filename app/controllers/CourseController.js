@@ -16,20 +16,26 @@ myApp.controller('CourseController',
             });
         }
 
-        $scope.saveCourse = function (course) {
-            ModalService.showModal({
-                templateUrl: '/partials/modal.html',
-                controller: "CourseController"
-            }).then(function(modal) {
-                modal.element.modal();
-                modal.close.then(function(result) {
-                    $scope.message = "You said " + result;
+        $scope.saveCourse = function (course, editCourseForm) {
+            console.log(editCourseForm)
+            if (editCourseForm.$invalid) {
+                ModalService.showModal({
+                    templateUrl: '/partials/modal.html',
+                    controller: "CourseController",
+                    scope: $scope
+                }).then(function (modal) {
+                    console.log(editCourseForm);
+                    modal.element.modal();
+                    modal.close.then(function (result) {
+                        $scope.message = "You said " + result;
+                    });
                 });
-            });
+            } else {
 
+            }
             /*coursesResource.saveItem(course).then(function () {
-                $location.url('/courses/');
-            });*/
+             $location.url('/courses/');
+             });*/
         };
         $scope.cancelCourse = function () {
             $location.url('/courses')

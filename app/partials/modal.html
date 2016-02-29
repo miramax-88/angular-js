@@ -2,15 +2,28 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Yes or No?</h4>
+				<button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+				<h4 class="modal-title">ERROR</h4>
 			</div>
-			<div class="modal-body">
-				<p>It's your call...</p>
+			<div class="modal-body bg-danger">
+				<div ng-show="!$parent.editCourse.name.$valid || $parent.editCourse.name.$error.required">Name is
+					required.
+				</div>
+				<div ng-show="!$parent.editCourse.description.$valid || $parent.editCourse.description.$error.required">
+					Description is required.
+				</div>
+				<div ng-show="$parent.editCourse.date.$error.required">Date is required.</div>
+				<div ng-show="!$parent.editCourse.date.$valid && !$parent.editCourse.date.$error.required">Please write
+					date in the following format "10.02.2016".
+				</div>
+				<div ng-show="!$parent.editCourse.duration.$valid || $parent.editCourse.duration.$error.required">
+					Duration is required.
+				</div>
+				<!--<div ng-show="!$parent.editCourse.date.$valid || $parent.editCourse.date.$error.required">Please write date in the following format "10.02.2016".</div>-->
 			</div>
 			<div class="modal-footer">
-				<button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
-				<button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+				<button type="button" ng-click="close('Ok')" class="btn btn-primary" data-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>
