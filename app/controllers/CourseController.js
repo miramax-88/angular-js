@@ -34,16 +34,5 @@ myApp.controller('CourseController',
         $scope.cancelCourse = function () {
             $location.url('/courses')
         };
-
-        /*$scope.show = function() {
-            ModalService.showModal({
-                templateUrl: '/partials/modal.html'
-            }).then(function(modal) {
-                modal.element.modal();
-                modal.close.then(function(result) {
-                    $scope.message = "You said " + result;
-                });
-            });
-        };*/
     }
 );
