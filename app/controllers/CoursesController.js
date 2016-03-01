@@ -14,6 +14,7 @@ myApp.controller('CoursesController',
         $scope.inputVal = '';
 
         coursesResource.getItems().then(function (data) {
+            console.log(data)
             $scope.courses = data;
         });
 

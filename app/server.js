@@ -14,7 +14,14 @@
                 "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
                 "date": "03.16.2013",
                 "duration": "10",
-                "authors": ['First']
+                "models": {
+                    lists: {
+                        Authors: [
+                            {label: "Author 1"},
+                            {label: "Author 2"}
+                        ]
+                    }
+                }
             },
             {
                 "id": 2,
@@ -22,7 +29,14 @@
                 "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
                 "date": "03.16.2013",
                 "duration": "20",
-                "authors": ['First', 'Second']
+                "models": {
+                    lists: {
+                        Authors: [
+                            {label: "Author 3"},
+                            {label: "Author 4"}
+                        ]
+                    }
+                }
             }
         ];
 

@@ -10,6 +10,23 @@ myApp.controller('CourseController',
             return;
         }
         $scope.course = {};
+
+        $scope.course= {
+            models: {
+                selected: null,
+                lists: {"Authors": [], "Courses": [] }
+            }
+        };
+
+        // Generate initial model
+        for (var i = 1; i <= 3; ++i) {
+            $scope.course.models.lists.Courses.push({label: "Author " + i});
+        }
+
+        $scope.$watch('models', function(model) {
+            $scope.modelAsJson = angular.toJson(model, true);
+        }, true);
+
         if ($location.$$url.indexOf('/courses/edit') > -1) {
             coursesResource.getItem($routeParams.id).then(function (data) {
                 $scope.course = data;
@@ -17,13 +34,13 @@ myApp.controller('CourseController',
         }
 
         $scope.saveCourse = function (course, editCourseForm) {
+            console.log(course);
             if (editCourseForm.$invalid) {
                 ModalService.showModal({
                     templateUrl: '/partials/modal.html',
                     controller: "CourseController",
                     scope: $scope
                 }).then(function (modal) {
-                    console.log(editCourseForm);
                     modal.element.modal();
                     modal.close.then(function (result) {
                         $scope.message = "You said " + result;
@@ -35,6 +52,7 @@ myApp.controller('CourseController',
                 });
             }
         };
+
         $scope.cancelCourse = function () {
             $location.url('/courses')
         };

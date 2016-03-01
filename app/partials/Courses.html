@@ -20,6 +20,13 @@
 		<div class="col-md-9">
 			{{course.description}}
 		</div>
+		<div class="col-md-9">
+			<ul>
+				<li ng-repeat="author in course.models.lists.Authors">
+					{{author.label}}
+				</li>
+			</ul>
+		</div>
 		<div class="col-md-2">
 			<p>
 				<button type="button" ng-click="edit(course)" class="btn btn-primary">Edit</button>
