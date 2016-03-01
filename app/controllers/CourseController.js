@@ -3,8 +3,7 @@
  */
 
 'use strict';
-myApp.controller('CourseController',
-    function CourseController($scope, $location, coursesResource, $routeParams, authService, ModalService) {
+myApp.controller('CourseController', function ($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
         if (!authService.isAuthenticated()) {
             $location.url('/login');
             return;
@@ -30,11 +29,11 @@ myApp.controller('CourseController',
         if ($location.$$url.indexOf('/courses/edit') > -1) {
             coursesResource.getItem($routeParams.id).then(function (data) {
                 $scope.course = data;
+                currentCourse.is = data;
             });
         }
 
         $scope.saveCourse = function (course, editCourseForm) {
-            console.log(editCourseForm);
             if (editCourseForm.$invalid) {
                 ModalService.showModal({
                     templateUrl: '/partials/modal.html',
@@ -45,13 +44,14 @@ myApp.controller('CourseController',
                 });
             } else {
                 coursesResource.saveItem(course).then(function () {
+                    currentCourse.is = {};
                     $location.url('/courses/');
                 });
             }
         };
 
         $scope.cancelCourse = function () {
+            currentCourse.is = {};
             $location.url('/courses')
         };
-    }
-);
+});

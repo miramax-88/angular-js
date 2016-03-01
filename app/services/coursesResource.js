@@ -44,3 +44,8 @@ myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
         }
     }
 }]);
+
+myApp.service('currentCourse', function currentCourse(){
+    var currentCourse = this;
+    currentCourse.is = {};
+});

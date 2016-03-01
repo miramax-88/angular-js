@@ -4,7 +4,8 @@
 'use strict';
 
 myApp.controller('LoginController',
-    function LoginController($scope, $location, userData, authService) {
+    function LoginController($scope, $location, userData, authService, currentCourse) {
+        currentCourse.is = {};
         $scope.user = {
             userName: '',
             password: ''

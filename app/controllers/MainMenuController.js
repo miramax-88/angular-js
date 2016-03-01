@@ -4,7 +4,9 @@
 'use strict';
 
 myApp.controller('MainMenuController',
-    function MainMenuController($scope, authService) {
+    function MainMenuController($scope, authService, $routeParams, currentCourse) {
+
+        $scope.course = currentCourse;
         $scope.logo = {
             img: 'img/angularjs-logo.png'
         };
@@ -23,6 +25,5 @@ myApp.controller('MainMenuController',
         $scope.preventDefault = function (e) {
             e.preventDefault();
         };
-    }
-);
+});
 

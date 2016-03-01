@@ -4,11 +4,12 @@
 
 'use strict';
 myApp.controller('CoursesController',
-    function CoursesController($scope, coursesResource, $filter, $location, authService) {
+    function CoursesController($scope, coursesResource, $filter, $location, authService, currentCourse) {
         if (!authService.isAuthenticated()) {
             $location.url('/login');
             return;
         }
+        currentCourse.is = {};
         $scope.courses = {};
         $scope.searchBy = '';
         $scope.inputVal = '';
