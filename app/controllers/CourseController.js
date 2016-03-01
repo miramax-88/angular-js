@@ -34,7 +34,7 @@ myApp.controller('CourseController',
         }
 
         $scope.saveCourse = function (course, editCourseForm) {
-            console.log(course);
+            console.log(editCourseForm);
             if (editCourseForm.$invalid) {
                 ModalService.showModal({
                     templateUrl: '/partials/modal.html',
@@ -42,9 +42,6 @@ myApp.controller('CourseController',
                     scope: $scope
                 }).then(function (modal) {
                     modal.element.modal();
-                    modal.close.then(function (result) {
-                        $scope.message = "You said " + result;
-                    });
                 });
             } else {
                 coursesResource.saveItem(course).then(function () {
