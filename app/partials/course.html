@@ -17,7 +17,7 @@
 	<div class="form-group">
 		<label for="date" class="col-sm-2 control-label">Date</label>
 		<div class="col-sm-10">
-			<input type="text" required ng-model="course.date" class="form-control" ng-pattern="/\d\d.\d\d.\d\d\d\d/"
+			<input type="text" required ng-model="course.date" maxlength="10" class="form-control" ng-pattern="/\d\d.\d\d.\d\d\d\d/"
 				   only-numbers Numbers name="date" id="date" placeholder="example 10.02.2016">
 		</div>
 	</div>
