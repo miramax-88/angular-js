@@ -1,11 +1,12 @@
 'use strict';
+(function () {
+    myApp.factory('userResource', ['$resource', function ($resource) {
+        var User = $resource('/data/user/:userName.json', {userName: '@userName'}, {});
 
-myApp.factory('userResource', ['$resource', function ($resource) {
-    var User = $resource('/data/user/:userName.json', {userName:'@userName'}, { });
+        User.queryAll = function (callback) {
+            return User.query({}, callback)
+        };
 
-    User.queryAll = function (callback) {
-        return User.query({}, callback)
-    };
-
-    return User;
-}]);
+        return User;
+    }]);
+})();

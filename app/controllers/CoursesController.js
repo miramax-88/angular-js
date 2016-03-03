@@ -1,4 +1,5 @@
 'use strict';
+(function () {
 myApp.controller('CoursesController',
     function CoursesController($scope, coursesResource, $filter, $location, authService, currentCourse, ModalService) {
         if (!authService.isAuthenticated()) {
@@ -38,3 +39,4 @@ myApp.controller('CoursesController',
         };
     }
 );
+})();

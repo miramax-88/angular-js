@@ -1,15 +1,16 @@
 'use strict';
-myApp.controller('CourseController', function ($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
+(function () {
+    myApp.controller('CourseController', function ($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
         if (!authService.isAuthenticated()) {
             $location.url('/login');
             return;
         }
         $scope.course = {};
 
-        $scope.course= {
+        $scope.course = {
             models: {
                 selected: null,
-                lists: {"Authors": [], "Courses": [] }
+                lists: {"Authors": [], "Courses": []}
             }
         };
 
@@ -18,7 +19,7 @@ myApp.controller('CourseController', function ($scope, $location, coursesResourc
             $scope.course.models.lists.Courses.push({label: "Author " + i});
         }
 
-        $scope.$watch('models', function(model) {
+        $scope.$watch('models', function (model) {
             $scope.modelAsJson = angular.toJson(model, true);
         }, true);
 
@@ -50,4 +51,5 @@ myApp.controller('CourseController', function ($scope, $location, coursesResourc
             currentCourse.is = {};
             $location.url('/courses/')
         };
-});
+    });
+})();
