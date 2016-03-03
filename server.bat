@@ -1,2 +1,2 @@
-cd Angular2016
+%cd%
 call gulp
