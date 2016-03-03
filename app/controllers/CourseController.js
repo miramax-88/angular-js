@@ -52,6 +52,6 @@ myApp.controller('CourseController', function ($scope, $location, coursesResourc
 
         $scope.cancelCourse = function () {
             currentCourse.is = {};
-            $location.url('/courses')
+            $location.url('/courses/')
         };
 });

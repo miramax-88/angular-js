@@ -71,6 +71,7 @@
         $httpBackend.whenGET('/partials/courses.html').passThrough();
         $httpBackend.whenGET('/partials/directives/authorsList.html').passThrough();
         $httpBackend.whenGET('/partials/modal.html').passThrough();
+        $httpBackend.whenGET('/partials/confirmDeletion.html').passThrough();
         $httpBackend.whenGET('/data/user/test.json').respond(
             {"userName": "test", "password": "test", "name": "Max", "emailAddress": "test@test.com"}
         );
