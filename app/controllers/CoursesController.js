@@ -10,7 +10,6 @@ myApp.controller('CoursesController',
             return;
         }
         currentCourse.is = {};
-        $scope.courses = {};
         $scope.searchBy = '';
         $scope.inputVal = '';
 
