@@ -1,6 +1,3 @@
-/**
- * Created by Maksym_Kondratenko on 09.02.2016.
- */
 'use strict';
 
 var myApp = angular.module('myApp', [

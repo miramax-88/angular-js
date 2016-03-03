@@ -1,7 +1,3 @@
-/**
- * Created by Maksym_Kondratenko on 17.02.2016.
- */
-
 'use strict';
 
 myApp.factory('formatService', ['$filter', function ($filter) {

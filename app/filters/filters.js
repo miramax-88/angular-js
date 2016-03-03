@@ -1,6 +1,4 @@
-/**
- * Created by Maksym_Kondratenko on 17.02.2016.
- */
+'use strict';
 
 myApp.filter('duration', [function () {
     return function (min) {

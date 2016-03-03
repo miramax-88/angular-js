@@ -1,7 +1,3 @@
-/**
- * Created by Maksym_Kondratenko on 19.02.2016.
- */
-
 'use strict';
 
 myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {

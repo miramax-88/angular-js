@@ -1,6 +1,4 @@
-/**
- * Created by Maksym_Kondratenko on 15.02.2016.
- */
+'use strict';
 
 myApp.factory('userData', ['userResource', function (userResource) {
     return {

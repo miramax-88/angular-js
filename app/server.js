@@ -1,6 +1,4 @@
-/**
- * Created by Maksym_Kondratenko on 24.02.2016.
- */
+'use strict';
 
 (function () {
 
