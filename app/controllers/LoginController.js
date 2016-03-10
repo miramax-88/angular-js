@@ -4,8 +4,8 @@
         function LoginController($scope, $location, userData, authService, currentCourse) {
             currentCourse.is = {};
             $scope.user = {
-                userName: '',
-                password: ''
+                userName: "",
+                password: ""
             };
             $scope.error = {
                 status: false
