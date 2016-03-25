@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.directive('addCourseBtn', function ($location) {
+    angular.module('myApp').directive('addCourseBtn', function ($location) {
         return {
             restrict: "E",
             replace: true,

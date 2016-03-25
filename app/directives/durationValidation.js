@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.directive('durationValidation', function (formatService) {
+    angular.module('myApp').directive('durationValidation', function (formatService) {
         return {
             restrict: "A",
             replace: true,

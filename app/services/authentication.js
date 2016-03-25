@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.factory('authService', function (localStorageService) {
+    angular.module('myApp').factory('authService', function (localStorageService) {
 
         var currentUser = 'currentUser';
 

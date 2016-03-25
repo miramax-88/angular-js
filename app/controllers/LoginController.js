@@ -1,7 +1,7 @@
 'use strict';
 (function () {
-    myApp.controller('LoginController',
-        function LoginController($scope, $location, userData, authService, currentCourse) {
+    angular.module('myApp').controller('LoginController',
+        function LoginController($scope, $location, userDataService, authService, currentCourse) {
             currentCourse.is = {};
             $scope.user = {
                 userName: "",
@@ -11,7 +11,7 @@
                 status: false
             };
             $scope.login = function () {
-                userData.getUser($scope.user.userName, function (user) {
+                userDataService.getUser($scope.user.userName, function (user) {
                     if (!!user && user.password === $scope.user.password) {
                         authService.setCurrentUser(user);
                         $location.url('/courses');

@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.controller('CourseController', function ($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
+    angular.module('myApp').controller('CourseController', function ($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
         if (!authService.isAuthenticated()) {
             $location.url('/login');
             return;

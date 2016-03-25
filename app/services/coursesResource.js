@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
+    angular.module('myApp').factory('coursesResource', ['$resource', '$q', function ($resource, $q) {
         return {
             getItems: function () {
                 var deferred = $q.defer();
@@ -41,7 +41,7 @@
         }
     }]);
 
-    myApp.service('currentCourse', function currentCourse() {
+    angular.module('myApp').service('currentCourse', function currentCourse() {
         var currentCourse = this;
         currentCourse.is = {};
     });

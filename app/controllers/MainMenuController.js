@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.controller('MainMenuController',
+    angular.module('myApp').controller('MainMenuController',
         function MainMenuController($scope, authService, $routeParams, currentCourse) {
 
             $scope.course = currentCourse;

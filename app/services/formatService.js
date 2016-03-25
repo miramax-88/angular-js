@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.factory('formatService', ['$filter', function ($filter) {
+    angular.module('myApp').factory('formatService', ['$filter', function ($filter) {
         return {
             formatDate: function (date) {
                 return $filter('date')(date, 'dd.mm.yyyy');

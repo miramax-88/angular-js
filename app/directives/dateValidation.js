@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.directive('onlyNumbers', function () {
+    angular.module('myApp').directive('onlyNumbers', function () {
         return {
             restrict: "A",
             replace: true,

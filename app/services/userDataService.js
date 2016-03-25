@@ -1,6 +1,11 @@
 'use strict';
 (function () {
-    myApp.factory('userData', ['userResource', function (userResource) {
+    angular
+        .module('myApp')
+        .factory('userDataService', userData);
+    userData.$inject = ['userResource'];
+
+    function userData(userResource) {
         return {
             getUser: function (userName, callback) {
                 return userResource.get({userName: userName}, function (user) {
@@ -12,5 +17,5 @@
                 });
             }
         };
-    }]);
+    }
 })();

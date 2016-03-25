@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-    myApp.filter('duration', [function () {
+    angular.module('myApp').filter('duration', [function () {
         return function (min) {
             if (!min) {
                 return '';

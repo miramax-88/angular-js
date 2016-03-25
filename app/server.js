@@ -2,7 +2,7 @@
 
 (function () {
 
-    myApp.config(function ($provide) {
+    angular.module('myApp').config(function ($provide) {
         $provide.decorator('$httpBackend', angular.mock.e2e.$httpBackendDecorator);
     }).run(function ($httpBackend, localStorageService) {
         var Courses = [
