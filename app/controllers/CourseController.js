@@ -1,6 +1,11 @@
 'use strict';
 (function () {
-    angular.module('myApp').controller('CourseController', function ($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
+    angular
+        .module('myApp')
+        .controller('CourseController', CourseController);
+
+    /*@ngInject*/
+    function CourseController($scope, $location, coursesResource, $routeParams, authService, ModalService, currentCourse) {
         if (!authService.isAuthenticated()) {
             $location.url('/login');
             return;
@@ -51,5 +56,5 @@
             currentCourse.is = {};
             $location.url('/courses/')
         };
-    });
+    }
 })();
